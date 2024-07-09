@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout";
+}
+@model IEnumerable<FrontEndMVC.Models.Flight>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Category View</title>
+</head>
+<body>
+
+    <div class="bg-white shadow-lg rounded-lg p-6 mt-6">
+        <div class="flex justify-between mb-2 ">
+            <h2 class="text-2xl font-semibold mb-4">Pie Category</h2>
+            <a href="#" class="text-lg font-semibold bg-blue-500 text-white py-1 px-3 rounded">Create New Category</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+                <thead class="bg-gray-100">
+                    @foreach(var item in Model)
+                    {
+                        @item.Arrival
+                        @item.From
+                        @item.Departuer
+                        @item.To
+
+                    }
+                    <tr>
+                        <th class="py-2 px-4 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Category ID</th>
+                        <th class="py-2 px-4 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Category Name</th>
+                        <th class="py-2 px-4 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Description</th>
+                        <th class="py-2 px-4 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example row -->
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-200">1</td>
+                        <td class="py-2 px-4 border-b border-gray-200">CategoryName</td>
+                        <td class="py-2 px-4 border-b border-gray-200">Description</td>
+                        <td class="py-2 px-4 border-b border-gray-200">
+                            <button class="bg-blue-500 text-white py-1 px-3 rounded text-sm"><a href="#">Show</a></button>
+                            <button class="bg-green-500 text-white py-1 px-3 rounded text-sm"><a href="#">Edit</a></button>
+                            <button class="bg-red-500 text-white py-1 px-3 rounded text-sm"><a href="#">Delete</a></button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows dynamically as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
+

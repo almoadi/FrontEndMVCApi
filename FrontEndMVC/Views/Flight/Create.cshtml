@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Flight
+
+<div class="container mx-auto p-6">
+    <div class="bg-white shadow-md rounded-lg p-6 mt-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Assign Role to User</h2>
+        <form asp-action="Create" method="post" class="space-y-4" asp-controller="Flight" >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label asp-for="From" class="block text-sm font-medium text-gray-700">From</label>
+                    <input asp-for="From" type="text" name="From" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <span asp-validation-for="From" class="text-red-600 text-sm"></span>
+                </div>
+                <div>
+                    <label asp-for="To" class="block text-sm font-medium text-gray-700">To</label>
+                    <input asp-for="To" type="text" id="ImageUrl" name="To" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <span asp-validation-for="To" class="text-red-600 text-sm"></span>
+                </div>
+                <div>
+                    <label asp-for="Arrival" class="block text-sm font-medium text-gray-700">Arrival</label>
+                    <input asp-for="Arrival" type="date"  name="Arrival" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <span asp-validation-for="Arrival" class="text-red-600 text-sm"></span>
+                </div>
+                <div>
+                    <label asp-for="Departuer" class="block text-sm font-medium text-gray-700">Departuer</label>
+                    <input asp-for="Departuer" type="date" name="Departuer" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                    <span asp-validation-for="Departuer" class="text-red-600 text-sm"></span>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Assign Role</button>
+            </div>
+        </form>
+        <div class="mt-4">
+            <a asp-action="Index" class="text-indigo-600 hover:text-indigo-900">Back to Flight</a>
+        </div>
+    </div>
+</div>
+
