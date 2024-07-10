@@ -8,6 +8,8 @@
         public string Departuer { get; set; }
         public string Arrival { get; set; }
 
+        public List<Passenger> passengers { get; set; } = new List<Passenger>();
+
         //public List<Booking>? Bookings { get; set; }
     }
 }

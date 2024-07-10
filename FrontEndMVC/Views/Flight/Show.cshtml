@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Flight
+
+<div class="container mx-auto p-6">
+    <div class="bg-white shadow-md rounded-lg p-6 mt-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Flight Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">From</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">@Model.From</p>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">To</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">@Model.To</p>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Arrival</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">@Model.Arrival</p>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Departure</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">@Model.Departuer</p>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <div class="flex justify-between ">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Passengers</h3>
+                <a asp-action="Create" asp-controller="Passenger" asp-route-id="@Model.Id"  class="text-lg font-semibold bg-blue-500 text-white py-1 px-3 m-2 rounded">Create New Flight</a>
+            </div>
+            
+            <table class="min-w-full bg-white border">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Full Name</th>
+                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Email</th>
+                        <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-700">Phone Number</th>
+                        <th class="py-2 px-4 border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Action</th>
+                    </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var passenger in Model.passengers)
+                    {
+                        <tr>
+                            <td class="py-2 px-4 border-b text-sm text-gray-700">@passenger.FullName</td>
+                            <td class="py-2 px-4 border-b text-sm text-gray-700">@passenger.Email</td>
+                            <td class="py-2 px-4 border-b text-sm text-gray-700">@passenger.PhoneNumber</td>
+                            <td class="py-2 px-4 border-b text-sm text-gray-700">
+                                <a asp-action="Edit" asp-controller="Passenger" asp-route-id="@passenger.Id" class="bg-green-500 text-white py-1 px-3 rounded text-sm">Edit</a>
+                                <a asp-action="Delete" asp-controller="Passenger" asp-route-id="@passenger.Id" class="bg-red-500 text-white py-1 px-3 rounded text-sm">Delete</a>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flex justify-end mt-6">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</a>
+        </div>
+        <div class="mt-4">
+            <a asp-action="Index" class="text-indigo-600 hover:text-indigo-900">Back to Flights</a>
+        </div>
+    </div>
+</div>
